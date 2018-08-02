@@ -3,25 +3,26 @@
  */
 package minesweeper;
 
-import java.util.ArrayList;
-
 /**
  * @author juliadart
  *
  */
 public abstract class Board {
-	private ArrayList<Character> board;
+
 	private int boardSize;
 	private int numMines;
 
+	public abstract char[][] generateField(int boardSize, int numMines);
+
+	public abstract String checkCell(int x, int y);
+
+	public abstract void updateBoard(int x, int y);
 	/**
-	 * @param board
 	 * @param boardSize
 	 * @param numMines
 	 */
-	public Board(ArrayList<Character> board, int boardSize, int numMines) {
+	public Board(int boardSize, int numMines) {
 		super();
-		this.board = board;
 		this.boardSize = boardSize;
 		this.numMines = numMines;
 	}
