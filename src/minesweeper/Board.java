@@ -12,7 +12,17 @@ public abstract class Board {
 	private int boardSize;
 	private int numMines;
 
-	public abstract char[][] generateField(int boardSize, int numMines);
+	public static char[][] generateEasyBoard() {
+		return null;
+	}
+
+	public static char[][] generateMediumBoard() {
+		return null;
+	}
+
+	public static char[][] generateHardBoard() {
+		return null;
+	}
 
 	public abstract String checkCell(int x, int y);
 
@@ -21,6 +31,10 @@ public abstract class Board {
 	 * @param boardSize
 	 * @param numMines
 	 */
+	public Board() {
+
+	}
+
 	public Board(int boardSize, int numMines) {
 		super();
 		this.boardSize = boardSize;
@@ -33,7 +47,6 @@ public abstract class Board {
 	public int getBoardSize() {
 		return boardSize;
 	}
-
 	/**
 	 * @param boardSize
 	 *            the boardSize to set
