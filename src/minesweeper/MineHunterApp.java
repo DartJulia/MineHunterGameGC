@@ -23,12 +23,26 @@ public class MineHunterApp {
 		String isMine;
 		String inNum;
 		String isLastFlag;
+		int size;
 		
 		
 		System.out.println("Welcome to the MineHunter game!");
 		
-		System.out.println("Please enter the level of difficulty. (easy, medium, hard) ");
+		System.out.println("Please enter the level of difficulty. (easy, intermediate, difficult) ");
 		String sizeInput = scan.nextLine();
+		
+		
+		// Outputting board from Functionality class and generateBoard methods based on level of difficulty selected
+        if (sizeInput.equalsIgnoreCase("easy")) {
+            BoardFunctionality.generateEasyBoard();
+        } else if (sizeInput.equalsIgnoreCase("intermediate")) {
+            BoardFunctionality.generateMediumBoard();
+        } else if (sizeInput.equalsIgnoreCase("difficult")) {
+            BoardFunctionality.generateHardBoard();
+        }
+        //Functionality2.testPrint(Functionality2.generateEasyBoard());
+		
+		
 		
 		// Outprint of board
 		
