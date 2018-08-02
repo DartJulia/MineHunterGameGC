@@ -16,6 +16,15 @@ public class BoardFunctionality {
 			};
 	private static char[][]userBoard = new char[9][9];
 
+	public static char[][] initializeUserBoard(char[][] userBoard){
+
+		for(int i = 0; i<userBoard.length; i++)
+		    for(int j = 0; j<userBoard[i].length; j++)
+		        userBoard[i][j] = '#';
+		
+		return userBoard;
+		}
+	
 	public static void testPrint() {
 		// for test printing
 		int rows = 9;
@@ -28,6 +37,19 @@ public class BoardFunctionality {
 			System.out.println();
 		}
 		System.out.println(Arrays.deepToString(answerBoard));
+	}
+	public static String checkCell(char[][] answerBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		if(check == '*') {
+			return "bomb";
+		}
+		else if (check == '1' || check == '2' || check == '3') {
+			return "num";
+		}
+		else if (check == '-') {
+			return "empty";
+		}
+		return null;
 	}
 
 }
