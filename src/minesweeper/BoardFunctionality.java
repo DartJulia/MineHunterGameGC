@@ -79,6 +79,15 @@ public class BoardFunctionality {
 		}
 		return userBoard;
 	}
+	
+	public static char[][] updateEmptyCell(char[][] answerBoard, char[][] userBoard, int x, int y){
+		char check = answerBoard[x][y];
+		if (check == '-') {
+			userBoard[x][y] = check;
+			return userBoard;
+		}
+		return userBoard;
+	}
 
 	public static char[][] unFlagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		char check = answerBoard[x][y];
