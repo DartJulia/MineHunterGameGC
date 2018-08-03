@@ -42,8 +42,8 @@ public class MineHunterApp {
 			BoardFunctionality.generateHardBoard();
 		}
 		// Functionality2.testPrint(Functionality2.generateEasyBoard());
-		checkCell c = new checkCell();
-
+		// checkCell c = new checkCell();
+		char[][] answerBoard = Board.generateEasyBoard();
 		// Outprint of board
 		do {
 			System.out.println("Please choose a square! (x coordinate)");
@@ -59,6 +59,7 @@ public class MineHunterApp {
 			// new updated board
 			// until they either win or lose
 			check = scan.next();
+			winLose(answerBoard, userX, userY);
 			//if user doesn't lose or win program loops
 		} while (!check.equalsIgnoreCase("Win") || !check.equalsIgnoreCase("Lose"));
 
@@ -71,11 +72,12 @@ public class MineHunterApp {
 		scan.close();
 	}
 	
-	public static String winLose() {
-		if(checkCell == "bomb") {
-			 == "lose;"
+	public static String winLose(char[][] answerBoard, int x, int y) {
+		if (answerBoard[x][y] == '*') {
+
+			return "Sorry, you lose!";
 		}
-		
+		return "";
 	}
 
 }
