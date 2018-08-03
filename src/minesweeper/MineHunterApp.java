@@ -1,4 +1,4 @@
-/**
+  /**
  * 
  */
 package minesweeper;
@@ -23,10 +23,13 @@ public class MineHunterApp {
 		String isMine;
 		String inNum;
 		String isLastFlag;
+		String check = null;
+		String answer = null;
 		int size;
 		
 		
 		System.out.println("Welcome to the MineHunter game!");
+		
 		
 		System.out.println("Please enter the level of difficulty. (easy, intermediate, difficult) ");
 		String sizeInput = scan.nextLine();
@@ -45,7 +48,7 @@ public class MineHunterApp {
 		
 		
 		// Outprint of board
-		
+		do {		
 		System.out.println("Please choose a square! (x coordinate)");
 		int userX = scan.nextInt();
 		
@@ -57,23 +60,25 @@ public class MineHunterApp {
 		
 		// reference check cell to check user input 
 		
-		if (check.equals == "bomb") {
+		if(check.equalsIgnoreCase("bomb") ) {
 			System.out.println("You Lose!");
 			// display answer board
 		}
-		else if (check.equals == "number") {
+		else if(check.equalsIgnoreCase("number")) {
 			// update board method
 			// uncover AllToNums
 			// redisplaying new Board
 		}
-		else if (check.equals == "number") {
+		else if(check.equals("number")) {
 			// uncoverNum
 			// redisplay board
 		}
-		else if (check.equals == "last flag") {
+		else if(check.equalsIgnoreCase("last flag")) {
 			System.out.println("You Win!");
 			// display answer
 		}
+		}while(!answer.equalsIgnoreCase("Win") || !answer.equalsIgnoreCase("Lose"));
+		
 		
 		
 		
@@ -84,3 +89,6 @@ public class MineHunterApp {
 	}
 
 }
+
+
+ 
