@@ -42,6 +42,7 @@ public class MineHunterApp {
 			BoardFunctionality.generateHardBoard();
 		}
 		// Functionality2.testPrint(Functionality2.generateEasyBoard());
+		checkCell c = new checkCell();
 
 		// Outprint of board
 		do {
@@ -68,6 +69,13 @@ public class MineHunterApp {
 		}
 
 		scan.close();
+	}
+	
+	public static String winLose() {
+		if(checkCell == "bomb") {
+			 == "lose;"
+		}
+		
 	}
 
 }
