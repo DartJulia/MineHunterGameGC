@@ -51,6 +51,17 @@ public class BoardFunctionality {
 		}
 		return null;
 	}
+	public static boolean pressUnpress(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		//char press = answerBoard[x][y];
+		
+		if(userBoard[x][y] == '#' && answerBoard[x][y] == '-') {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
 
 	public static char[][] generateEasyBoard() {
 		char[][] board = { { '1', '1', '1', '1', '*', '1', '-', '-' }, { '2', '*', '1', '1', '2', '2', '2', '1' },
