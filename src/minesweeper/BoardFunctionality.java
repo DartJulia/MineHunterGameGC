@@ -61,7 +61,16 @@ public class BoardFunctionality {
 			return false;
 		}
 	}
-
+	
+	public static boolean outOfBounds(int x, int y)   {
+		int [][] arr = new int [9][9];
+		if(x < 0 && x > 8 && y < 0 && y > 8) {
+			return true;
+		}else if(x > 0 && x < 8 && y > 0 && y < 8) {
+			return false;
+		}
+		return true;
+	}
 	public static char[][] updateNumberCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		char check = answerBoard[x][y];
 		if (check == '1' || check == '2' || check == '3') {
@@ -188,16 +197,6 @@ public class BoardFunctionality {
 				{ '*', '*', '2', '-', '2', '*', '3', '1', '1', '1', '1', '1', '*', '1', '-', '-', '1', '1', '1', '1',
 						'*', '1', '-', '-' } };
 		return board;
-	}
-	
-	public static boolean outOfBounds(int x, int y)   {
-		int [][] arr = new int [9][9];
-		if(x < 0 && x > 8 && y < 0 && y > 8) {
-			return true;
-		}else if(x > 0 && x < 8 && y > 0 && y < 8) {
-			return false;
-		}
-		return true;
 	}
 
 }
