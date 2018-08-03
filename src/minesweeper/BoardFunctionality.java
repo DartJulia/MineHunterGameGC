@@ -61,6 +61,35 @@ public class BoardFunctionality {
 			return false;
 		}
 	}
+
+	public static char[][] updateNumberCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		if (check == '1' || check == '2' || check == '3') {
+			userBoard[x][y] = check;
+			return userBoard;
+		}
+		return userBoard;
+	}
+
+	public static char[][] unFlagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		char flag = '>';
+		if (check == '#') {
+			userBoard[x][y] = flag;
+			return userBoard;
+		}
+		return userBoard;
+	}
+
+	public static char[][] flagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		char hash = '#';
+		if (check == '>') {
+			userBoard[x][y] = hash;
+			return userBoard;
+		}
+		return userBoard;
+	}
 	
 
 	public static char[][] generateEasyBoard() {
