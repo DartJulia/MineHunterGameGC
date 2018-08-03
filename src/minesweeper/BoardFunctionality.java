@@ -149,5 +149,15 @@ public class BoardFunctionality {
 						'*', '1', '-', '-' } };
 		return board;
 	}
+	
+	public static boolean outOfBounds(int x, int y)   {
+		int [][] arr = new int [9][9];
+		if(x < 0 && x > 8 && y < 0 && y > 8) {
+			return true;
+		}else if(x > 0 && x < 8 && y > 0 && y < 8) {
+			return false;
+		}
+		return true;
+	}
 
 }
