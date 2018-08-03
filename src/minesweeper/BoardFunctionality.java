@@ -51,6 +51,55 @@ public class BoardFunctionality {
 		}
 		return null;
 	}
+	public static boolean pressUnpress(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		//char press = answerBoard[x][y];
+		
+		if(userBoard[x][y] == '#' && answerBoard[x][y] == '-') {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static boolean outOfBounds(int x, int y)   {
+		int [][] arr = new int [9][9];
+		if(x < 0 && x > 8 && y < 0 && y > 8) {
+			return true;
+		}else if(x > 0 && x < 8 && y > 0 && y < 8) {
+			return false;
+		}
+		return true;
+	}
+	public static char[][] updateNumberCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		if (check == '1' || check == '2' || check == '3') {
+			userBoard[x][y] = check;
+			return userBoard;
+		}
+		return userBoard;
+	}
+
+	public static char[][] unFlagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		char flag = '>';
+		if (check == '#') {
+			userBoard[x][y] = flag;
+			return userBoard;
+		}
+		return userBoard;
+	}
+
+	public static char[][] flagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		char hash = '#';
+		if (check == '>') {
+			userBoard[x][y] = hash;
+			return userBoard;
+		}
+		return userBoard;
+	}
+	
 
 	public static char[][] generateEasyBoard() {
 		char[][] board = { { '1', '1', '1', '1', '*', '1', '-', '-' }, { '2', '*', '1', '1', '2', '2', '2', '1' },
@@ -148,16 +197,6 @@ public class BoardFunctionality {
 				{ '*', '*', '2', '-', '2', '*', '3', '1', '1', '1', '1', '1', '*', '1', '-', '-', '1', '1', '1', '1',
 						'*', '1', '-', '-' } };
 		return board;
-	}
-	
-	public static boolean outOfBounds(int x, int y)   {
-		int [][] arr = new int [9][9];
-		if(x < 0 && x > 8 && y < 0 && y > 8) {
-			return true;
-		}else if(x > 0 && x < 8 && y > 0 && y < 8) {
-			return false;
-		}
-		return true;
 	}
 
 }
