@@ -25,19 +25,19 @@ public class BoardFunctionality {
 		return userBoard;
 		}
 	
-	public static void testPrint(char[][] arr) {
-		// for test printing
-//		int rows = 9;
-//		int columns = 9;
-				
-		for(int i = 0; i<arr.length; i++){
-			for(int j = 0; j<arr.length; j++){
-				System.out.format("%4s", arr[i][j]);
-			}
-			System.out.println();
-		}
-		//System.out.println(Arrays.deepToString(answerBoard));
-	}
+//	public static void testPrint(char[][] arr) {
+//		// for test printing
+////		int rows = 9;
+////		int columns = 9;
+//				
+//		for(int i = 0; i<arr.length; i++){
+//			for(int j = 0; j<arr.length; j++){
+//				System.out.format("%4s", arr[i][j]);
+//			}
+//			System.out.println();
+//		}
+//		//System.out.println(Arrays.deepToString(answerBoard));
+//	}
 	public static String checkCell(char[][] answerBoard, int x, int y) {
 		char check = answerBoard[x][y];
 		if(check == '*') {

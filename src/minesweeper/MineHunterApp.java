@@ -38,10 +38,11 @@ public class MineHunterApp {
 		if (sizeInput.equalsIgnoreCase("easy")) {
 			answerBoard = Board.generateEasyBoard();
 			userBoard = Board.generateUserBoard(5);
-			BoardFunctionality.testPrint(userBoard);
+			Board.formatBoard(userBoard);
 		} else if (sizeInput.equalsIgnoreCase("intermediate")) {
 			answerBoard = Board.generateMediumBoard();
 			userBoard = Board.generateUserBoard(6);
+			Board.formatBoard(userBoard);
 		} else if (sizeInput.equalsIgnoreCase("difficult")) {
 			answerBoard = Board.generateHardBoard();
 			userBoard = Board.generateUserBoard(7);
@@ -63,6 +64,9 @@ public class MineHunterApp {
 			System.out.println("What would you like to do with this spot? (click, flag, unflag)");
 			String userAction = scan.nextLine();
 
+			
+			
+			
 			// new updated board
 			// until they either win or lose
 			check = scan.next();
