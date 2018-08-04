@@ -5,7 +5,7 @@ package minesweeper;
 public class PrintBoard {
 
 	public static void main(String[] args) {
-
+		char[][] userBoard = new char [24][24];
 		int num = 1;
 		int _j = 10;
 		int _k = 10;
@@ -24,7 +24,7 @@ public class PrintBoard {
 
 		System.out.println(" ");
 		
-		for(int i = 0; i<arr.length; i++) {
+		for(int i = 0; i<userBoard.length; i++) {
 			
 			String[][] array = new String[_j][_k];
 			for (int j = 0; j < _j; j++) {
@@ -41,8 +41,8 @@ public class PrintBoard {
 					}
 				}
 			}
-		    for(int j = 0; j<arr[i].length; j++) {
-		        System.out.format("%4s" , arr[i][j]); 
+		    for(int j = 0; j<userBoard[i].length; j++) {
+		        System.out.format("%4s" , userBoard[i][j]); 
 		    }
 		    System.out.println("");
 		}

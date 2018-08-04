@@ -39,14 +39,16 @@ public class MineHunterApp {
 		// level of difficulty selected
 		if (sizeInput.equalsIgnoreCase("easy")) {
 			answerBoard = Board.generateEasyBoard();
-			userBoard = Board.generateUserBoard(9);
-			BoardFunctionality.testPrint(userBoard);
+			userBoard = Board.generateUserBoard(5);
+			Board.formatBoard(userBoard);
+			//BoardFunctionality.testPrint(userBoard);
 		} else if (sizeInput.equalsIgnoreCase("intermediate")) {
 			answerBoard = Board.generateMediumBoard();
-			userBoard = Board.generateUserBoard(16);
+			userBoard = Board.generateUserBoard(7);
+			Board.formatBoard(userBoard);
 		} else if (sizeInput.equalsIgnoreCase("difficult")) {
 			answerBoard = Board.generateHardBoard();
-			userBoard = Board.generateUserBoard(24);
+			userBoard = Board.generateUserBoard(9);
 			Board.formatBoard(userBoard);
 		}
 		// Functionality2.testPrint(Functionality2.generateEasyBoard());
