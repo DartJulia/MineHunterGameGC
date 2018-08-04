@@ -36,18 +36,40 @@ public class BoardFunctionality {
 //		}
 //		//System.out.println(Arrays.deepToString(answerBoard));
 //	}
-	public static String checkCell(char[][] answerBoard, int x, int y) {
+	public static char [][] checkCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		char check = answerBoard[x][y];
-		if(check == '*') {
-			return "bomb";
-		}
-		else if (check == '1' || check == '2' || check == '3') {
-			return "num";
-		}
-		else if (check == '-') {
-			return "empty";
+		if (check == '*') {
+			return updateBombCell(answerBoard);
+		} else if (check == '1' || check == '2' || check == '3' || check == '4' || check == '5' || check == '6'
+				|| check == '7' || check == '8') {
+			return	updateNumberCell(answerBoard, userBoard, x, y);
+		} else if (check == '-') {
+			return updateEmptyCell(answerBoard, userBoard, x, y);
 		}
 		return null;
+
+	}
+	public static char[][] updateBombCell(char[][] answerBoard) {
+		
+		return answerBoard;
+	}
+
+	public static char[][] updateNumberCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		if (check == '1' || check == '2' || check == '3') {
+			userBoard[x][y] = check;
+			return userBoard;
+		}
+		return userBoard;
+	}
+
+	public static char[][] updateEmptyCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		char check = answerBoard[x][y];
+		if (check == '-') {
+			userBoard[x][y] = check;
+			return userBoard;
+		}
+		return userBoard;
 	}
 	public static boolean pressUnpress(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		//char press = answerBoard[x][y];
@@ -69,23 +91,7 @@ public class BoardFunctionality {
 		}
 		return true;
 	}
-	public static char[][] updateNumberCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
-		char check = answerBoard[x][y];
-		if (check == '1' || check == '2' || check == '3') {
-			userBoard[x][y] = check;
-			return userBoard;
-		}
-		return userBoard;
-	}
-	
-	public static char[][] updateEmptyCell(char[][] answerBoard, char[][] userBoard, int x, int y){
-		char check = answerBoard[x][y];
-		if (check == '-') {
-			userBoard[x][y] = check;
-			return userBoard;
-		}
-		return userBoard;
-	}
+
 
 	public static char[][] unFlagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		char check = answerBoard[x][y];

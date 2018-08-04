@@ -24,7 +24,7 @@ public class MineHunterApp {
 		String inNum;
 		String isLastFlag;
 		String check = null;
-		char[][] userBoard;
+		char[][] userBoard = null;
 		char[][] answerBoard = null;
 		int size;
 		
@@ -63,8 +63,16 @@ public class MineHunterApp {
 
 			System.out.println("What would you like to do with this spot? (click, flag, unflag)");
 			String userAction = scan.nextLine();
-
 			
+			if(userAction == "click")	{
+				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, userX, userY);
+				
+			}else if(userAction == "flag")  {
+				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, userX, userY);  					
+				
+			}else if(userAction == "unflag")  {
+				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, userX, userY);
+			}
 			
 			
 			// new updated board
