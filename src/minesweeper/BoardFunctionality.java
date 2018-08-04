@@ -16,7 +16,7 @@ public class BoardFunctionality {
 			};
 	private static char[][]userBoard = new char[9][9];
 
-	public static char[][] initializeUserBoard(char[][] userBoard){
+	public static char[][] initializeUserBoard(){
 
 		for(int i = 0; i<userBoard.length; i++)
 		    for(int j = 0; j<userBoard[i].length; j++)
@@ -25,18 +25,18 @@ public class BoardFunctionality {
 		return userBoard;
 		}
 	
-	public static void testPrint() {
+	public static void testPrint(char[][] arr) {
 		// for test printing
-		int rows = 9;
-		int columns = 9;
+//		int rows = 9;
+//		int columns = 9;
 				
-		for(int i = 0; i<rows; i++){
-			for(int j = 0; j<columns; j++){
-				System.out.format("%4s", answerBoard[i][j]);
+		for(int i = 0; i<arr.length; i++){
+			for(int j = 0; j<arr.length; j++){
+				System.out.format("%4s", arr[i][j]);
 			}
 			System.out.println();
 		}
-		System.out.println(Arrays.deepToString(answerBoard));
+		//System.out.println(Arrays.deepToString(answerBoard));
 	}
 	public static String checkCell(char[][] answerBoard, int x, int y) {
 		char check = answerBoard[x][y];
