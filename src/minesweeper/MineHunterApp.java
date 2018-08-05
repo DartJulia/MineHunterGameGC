@@ -26,11 +26,12 @@ public class MineHunterApp {
 		char[][] userBoard = null;
 		char[][] answerBoard = null;
 		int size = 0;
+		String again = null;
 		
 		System.out.println("Welcome to the MineHunter game!");
 		System.out.println();
 		//userInput asking for difficulty level
-		
+		do {
 		String sizeInput = Validator.getString(scan, "Please enter the level of difficulty (easy, medium, hard): ");
 		System.out.println();
 		// Outputting board from Functionality class and generateBoard methods based on
@@ -114,6 +115,9 @@ public class MineHunterApp {
 			
 			//if user doesn't lose or win program loops
 		} while (userBoard != answerBoard);
+		System.out.println("Would you like to play again? Yes or No");
+		again = scan.next();
+		}while(again.equalsIgnoreCase("Yes"));
 	
 
 
