@@ -5,6 +5,9 @@ package minesweeper;
 
 /**
  * @author juliadart
+ * @author matthewrhadigan
+ * @author Cheo Rowzee
+ * @author Jacob Quickert
  *
  */
 public abstract class Board {

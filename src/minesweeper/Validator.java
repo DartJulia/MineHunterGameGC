@@ -26,27 +26,6 @@ public class Validator
     }
     
 
-
-//    public static String getName(Scanner sc, String prompt,
-//    	    int max)
-//    	    {	System.out.print(prompt);
-//            	String s = sc.next();  // read user entry
-//            	sc.nextLine();  // discard any other data entered on the line
-//            	
-//    	        int i = 0;
-//    	        boolean isValid = false;
-//    	        while (isValid == false)
-//    	        {
-//    	            i = getInt(sc, prompt);
-//    	            if (i > max)
-//    	                System.out.println(
-//    	                    "Error! Name must be " + max + " characters or less.");
-//    	            else
-//    	                isValid = true;
-//    	        }
-//    	        return s;
-//    	    }
-
     public static int getInt(Scanner sc, String prompt)
     {
         int i = 0;
