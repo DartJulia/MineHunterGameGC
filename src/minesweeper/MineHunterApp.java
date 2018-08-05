@@ -35,6 +35,7 @@ public class MineHunterApp {
 
 		// Outputting board from Functionality class and generateBoard methods based on
 		// level of difficulty selected
+
 		if (sizeInput.equalsIgnoreCase("easy")) {
 			size = 5;
 			answerBoard = Board.generateEasyBoard();
@@ -64,18 +65,20 @@ public class MineHunterApp {
 			//adjust userX to match array indices
 			int y = userY - 1;
 
-			String userAction =  Validator.getString(scan, "What would you like to do with this spot? (click, flag, unflag)");
+			String userAction = Validator.getString(scan,
+					"What would you like to do with this spot? (click, flag, unflag)");
+
 			System.out.println(userAction);
 			
-			if(userAction == "click")	{
+			if (userAction.equals("click")) {
 				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, x, y);
 				Board.formatBoard(userBoard);
 				
-			}else if(userAction == "flag")  {
+			} else if (userAction.equals("flag")) {
 				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, x, y);  
 				Board.formatBoard(userBoard);
 				
-			}else if(userAction == "unflag")  {
+			} else if (userAction.equals("unflag")) {
 				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, x, y);
 				Board.formatBoard(userBoard);
 			}
