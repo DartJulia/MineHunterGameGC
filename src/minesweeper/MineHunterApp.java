@@ -26,7 +26,7 @@ public class MineHunterApp {
 		String check = null;
 		char[][] userBoard = null;
 		char[][] answerBoard = null;
-		int size;
+		int size = 0;
 		
 		System.out.println("Welcome to the MineHunter game!");
 
@@ -36,42 +36,45 @@ public class MineHunterApp {
 		// Outputting board from Functionality class and generateBoard methods based on
 		// level of difficulty selected
 		if (sizeInput.equalsIgnoreCase("easy")) {
+			size = 5;
 			answerBoard = Board.generateEasyBoard();
-			userBoard = Board.generateUserBoard(5);
+			userBoard = Board.generateUserBoard(size);
 			Board.formatBoard(userBoard);
 		} else if (sizeInput.equalsIgnoreCase("intermediate")) {
+			size = 6;
 			answerBoard = Board.generateMediumBoard();
-			userBoard = Board.generateUserBoard(6);
+			userBoard = Board.generateUserBoard(size);
 			Board.formatBoard(userBoard);
 		} else if (sizeInput.equalsIgnoreCase("difficult")) {
+			size = 7;
 			answerBoard = Board.generateHardBoard();
-			userBoard = Board.generateUserBoard(7);
+			userBoard = Board.generateUserBoard(size);
 			Board.formatBoard(userBoard);
 		}
-		// Functionality2.testPrint(Functionality2.generateEasyBoard());
-		// checkCell c = new checkCell();
-//		answerBoard = Board.generateEasyBoard();
-//		System.out.println(answerBoard.toString());
+
 		// Outprint of board
 		do {
-			System.out.println("Please choose a square! (x coordinate)");
-			int userX = scan.nextInt();
+			int userX = Validator.getInt(scan, "Please choose a square! (x coordinate)", 1, size);
+			
+			//adjust userX to match array indices
+			int x = userX - 1;
 
-			System.out.println("Please choose a square! (y coordinate)");
-			int userY = scan.nextInt();
-			scan.nextLine();
+			int userY = Validator.getInt(scan, "Please choose a square! (y coordinate)", 1, size);
+			
+			//adjust userX to match array indices
+			int y = userY - 1;
 
-			System.out.println("What would you like to do with this spot? (click, flag, unflag)");
-			String userAction = scan.nextLine();
+			String userAction =  Validator.getString(scan, "What would you like to do with this spot? (click, flag, unflag)");
+			System.out.println(userAction);
 			
 			if(userAction == "click")	{
-				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, userX, userY);
+				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, x, y);
 				
 			}else if(userAction == "flag")  {
-				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, userX, userY);  					
+				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, x, y);  					
 				
 			}else if(userAction == "unflag")  {
-				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, userX, userY);
+				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, x, y);
 			}
 			
 			

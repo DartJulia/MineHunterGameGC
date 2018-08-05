@@ -12,8 +12,7 @@ public abstract class Board {
 	
 
 	public static char[][] generateUserBoard(int size) {
-//		int rows = size;
-//		int columns = size;
+
 
 		char[][] userBoard = new char[size][size];
 
@@ -22,20 +21,10 @@ public abstract class Board {
 		        userBoard[i][j] = '#';
 		
 		return userBoard;
-		}
+	}
 	
-//				System.out.format("%4s", userBoard[i][j]);
-//			}
-//			System.out.println();
-//		}
-//		System.out.println(Arrays.deepToString(userBoard));
-//	}
-//	
 	public static void formatBoard(char [][] arr) {
 
-		int num = 1;
-//		int _j = 10;
-//		int _k = 10;
 		System.out.print("      ");
 		for (int a = 1; a <= arr.length; ++a) {
 			if (a < 10) {
@@ -47,24 +36,17 @@ public abstract class Board {
 			}
 		}
 		System.out.println("");
-		
-//		for (int c = 1; c < 9; ++c) {
-//			System.out.print(" ");
-//			System.out.print("  " + "============");
-//		}
-		
 
 		System.out.println(" ");
-		int i = 0;
-		int j = 0;
-		for(i = 0; i<arr.length; i++) {
+
+		for(int i = 0; i<arr.length; i++) {
 			if(i < 9 ) {
 				System.out.print((i + 1) + " " + "||");
 			} else {
 				System.out.print((i + 1) + "||");
 			}
 			
-		    for(j = 0; j<arr[i].length; j++) {
+		    for(int j = 0; j<arr[i].length; j++) {
 		    	
 		    	System.out.format("%4s" , arr[i][j]); 
 		    }
