@@ -63,15 +63,15 @@ public class MineHunterApp {
 			System.out.println();
 		// Loop to continue entering in coordinates
 		do {
-			int userX = Validator.getInt(scan, "Please choose a square! (x coordinate): ", 1, size);
+				int userRow = Validator.getInt(scan, "Please choose a square! (row coordinate): ", 1, size);
 			
 			//adjust userX to match array indices
-			int x = userX - 1;
+				int row = userRow - 1;
 
-			int userY = Validator.getInt(scan, "Please choose a square! (y coordinate): ", 1, size);
+				int userColumn = Validator.getInt(scan, "Please choose a square! (column coordinate): ", 1, size);
 			
 			//adjust userX to match array indices
-			int y = userY - 1;
+				int column = userColumn - 1;
 
 			// Ask user action for chosen square
 			String userAction = Validator.getString(scan,
@@ -81,23 +81,23 @@ public class MineHunterApp {
 			// based on user choice update chosen spots on board with appropriate symbol
 			if (userAction.equals("click")) {
 				// winLose is the method for if they click a bomb
-				System.out.println(loser(answerBoard, x, y));
-				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, x, y);
+					System.out.println(loser(answerBoard, row, column));
+					userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, row, column);
 				Board.formatBoard(userBoard);
 				
 			} else if (userAction.equals("flag")) {
-				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, x, y);  
+					userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, row, column);
 				Board.formatBoard(userBoard);
-				if (answerBoard[x][y] == '*') {
+					if (answerBoard[row][column] == '*') {
 					mineCount++;
 
 				}
 				
 
 			} else if (userAction.equals("unflag")) {
-				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, x, y);
+					userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, row, column);
 				Board.formatBoard(userBoard);
-				if (answerBoard[x][y] == '*') {
+					if (answerBoard[row][column] == '*') {
 					mineCount--;
 
 				}
@@ -107,7 +107,7 @@ public class MineHunterApp {
 			if (mineCount == maxMines) {
 				System.out.println();
 				System.out.println("You win!");
-				System.out.println();
+
 				Board.formatBoard(answerBoard);
 				break;
 			}
@@ -115,9 +115,12 @@ public class MineHunterApp {
 			
 			//if user doesn't lose or win program loops
 		} while (userBoard != answerBoard);
+
+			System.out.println();
 		System.out.println("Would you like to play again? Yes or No");
 		again = scan.next();
-		}while(again.equalsIgnoreCase("Yes"));
+
+		} while (again.equalsIgnoreCase("Yes"));
 	
 
 
