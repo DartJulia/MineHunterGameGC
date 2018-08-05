@@ -20,10 +20,10 @@ public class MineHunterApp {
 	 */
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		String isMine;
-		String inNum;
-		String isLastFlag;
-		String check = null;
+		// String isMine;
+		// String inNum;
+		// String isLastFlag;
+		// String check = null;
 		char[][] userBoard = null;
 		char[][] answerBoard = null;
 		int size = 0;
@@ -71,9 +71,8 @@ public class MineHunterApp {
 			// System.out.println(userAction);
 			
 			if (userAction.equals("click")) {
-				winLose(answerBoard, x, y);
+				System.out.println(winLose(answerBoard, x, y));
 				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, x, y);
-
 				Board.formatBoard(userBoard);
 				
 			} else if (userAction.equals("flag")) {
@@ -84,29 +83,28 @@ public class MineHunterApp {
 				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, x, y);
 				Board.formatBoard(userBoard);
 			}
-			
+
 			// new updated board
 			// until they either win or lose
-			check = scan.next();
+			// check = scan.next();
 			// winLose(answerBoard, userX, userY);
 			//if user doesn't lose or win program loops
-		} while (!check.equalsIgnoreCase("Win") || !check.equalsIgnoreCase("Lose"));
+		} while (userBoard != answerBoard);
+		// (!check.equalsIgnoreCase("Win") || !check.equalsIgnoreCase("Sorry, you
+		// lose!"));
 
-		if (check.equalsIgnoreCase("win")) {
-			System.out.println("You Win!!!");
-		} else if (check.equalsIgnoreCase("lose")) {
-			System.out.println("You Lose!!!");
-		}
+		//
 
 		scan.close();
 	}
 	
-	public static void winLose(char[][] answerBoard, int x, int y) {
+	public static String winLose(char[][] answerBoard, int x, int y) {
 		if (answerBoard[x][y] == '*') {
 
-			System.out.println("Sorry, you lose!");
-			System.out.println();
+			return "Sorry, you lose!";
+
 		}
+		return "";
 
 	}
 
