@@ -69,12 +69,15 @@ public class MineHunterApp {
 			
 			if(userAction == "click")	{
 				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, x, y);
+				Board.formatBoard(userBoard);
 				
 			}else if(userAction == "flag")  {
-				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, x, y);  					
+				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, x, y);  
+				Board.formatBoard(userBoard);
 				
 			}else if(userAction == "unflag")  {
 				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, x, y);
+				Board.formatBoard(userBoard);
 			}
 			
 			
