@@ -27,7 +27,7 @@ public class BoardFunctionality {
 	public static char [][] checkCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		char check = answerBoard[x][y];
 		if (check == '*') {
-			return updateBombCell(answerBoard);
+			return answerBoard;
 		} else if (check == '1' || check == '2' || check == '3' || check == '4' || check == '5' || check == '6'
 				|| check == '7' || check == '8') {
 			return	updateNumberCell(answerBoard, userBoard, x, y);
@@ -41,6 +41,7 @@ public class BoardFunctionality {
 		
 		return answerBoard;
 	}
+
 
 	public static char[][] updateNumberCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		char check = answerBoard[x][y];
@@ -81,24 +82,20 @@ public class BoardFunctionality {
 	}
 
 
-	public static char[][] unFlagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
-		char check = answerBoard[x][y];
+	public static char[][] flagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		// char check = answerBoard[x][y];
 		char flag = '>';
-		if (check == '#') {
 			userBoard[x][y] = flag;
 			return userBoard;
-		}
-		return userBoard;
+
 	}
 
-	public static char[][] flagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
-		char check = answerBoard[x][y];
+	public static char[][] unFlagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+		// char check = answerBoard[x][y];
 		char hash = '#';
-		if (check == '>') {
 			userBoard[x][y] = hash;
 			return userBoard;
-		}
-		return userBoard;
+
 	}
 	
 
