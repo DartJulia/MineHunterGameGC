@@ -87,15 +87,19 @@ public class MineHunterApp {
 			} else if (userAction.equals("flag")) {
 				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, x, y);  
 				Board.formatBoard(userBoard);
+				if (answerBoard[x][y] == '*') {
+					mineCount++;
+
+				}
 				
 
 			} else if (userAction.equals("unflag")) {
 				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, x, y);
 				Board.formatBoard(userBoard);
-			}
-			if (answerBoard[x][y] == '*') {
-				mineCount++;
+				if (answerBoard[x][y] == '*') {
+					mineCount--;
 
+				}
 			}
 
 			// If user flags all mines prints out a Win screen and solution
