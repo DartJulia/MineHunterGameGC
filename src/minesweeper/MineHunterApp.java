@@ -68,10 +68,12 @@ public class MineHunterApp {
 			String userAction = Validator.getString(scan,
 					"What would you like to do with this spot? (click, flag, unflag)");
 
-			System.out.println(userAction);
+			// System.out.println(userAction);
 			
 			if (userAction.equals("click")) {
+				winLose(answerBoard, x, y);
 				userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, x, y);
+
 				Board.formatBoard(userBoard);
 				
 			} else if (userAction.equals("flag")) {
@@ -83,11 +85,10 @@ public class MineHunterApp {
 				Board.formatBoard(userBoard);
 			}
 			
-			
 			// new updated board
 			// until they either win or lose
 			check = scan.next();
-			winLose(answerBoard, userX, userY);
+			// winLose(answerBoard, userX, userY);
 			//if user doesn't lose or win program loops
 		} while (!check.equalsIgnoreCase("Win") || !check.equalsIgnoreCase("Lose"));
 
@@ -100,12 +101,13 @@ public class MineHunterApp {
 		scan.close();
 	}
 	
-	public static String winLose(char[][] answerBoard, int x, int y) {
+	public static void winLose(char[][] answerBoard, int x, int y) {
 		if (answerBoard[x][y] == '*') {
 
-			return "Sorry, you lose!";
+			System.out.println("Sorry, you lose!");
+			System.out.println();
 		}
-		return "";
+
 	}
 
 }
