@@ -55,6 +55,7 @@ public abstract class Board {
 		
 	}
 
+	// mines = 3
 	public static char[][] generateEasyBoard() {
 		char[][] userBoard1 = { { '1', '1', '1', '-', '-' }, { '1', '*', '1', '-', '-' }, { '1', '1', '1', '1', '1' },
 				{ '-', '1', '1', '2', '*' }, { '-', '1', '*', '2', '1' } };
@@ -62,6 +63,12 @@ public abstract class Board {
 		return userBoard1;
 	}
 
+	public static int maxMinesEasy() {
+
+		return 3;
+	}
+
+	// mines = 5
 	public static char[][] generateMediumBoard() {
 
 		char[][] userBoard2 = { { '-', '-', '-', '1', '*', '1' }, { '1', '1', '1', '2', '2', '1' },
@@ -70,12 +77,23 @@ public abstract class Board {
 		return userBoard2;
 	}
 
+	public static int maxMinesMedium() {
+
+		return 5;
+	}
+
+	// mines = 6
 	public static char[][] generateHardBoard() {
 		char[][] userBoard3 = { { '1', '1', '1', '-', '1', '1', '1' }, { '1', '*', '1', '1', '2', '*', '1' },
 				{ '1', '1', '1', '1', '*', '2', '1' }, { '-', '1', '1', '3', '2', '2', '-' },
 				{ '-', '1', '*', '2', '*', '1', '-' }, { '-', '1', '1', '2', '1', '2', '1' },
 				{ '-', '-', '-', '-', '-', '1', '*' } };
 		return userBoard3;
+	}
+
+	public static int maxMinesHard() {
+
+		return 6;
 	}
 
 

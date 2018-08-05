@@ -6,11 +6,27 @@ public class Validator
 {
     public static String getString(Scanner sc, String prompt)
     {
+		boolean isValid = false;
+		String s = null;
+		while (isValid == false) {
         System.out.print(prompt);
-        String s = sc.nextLine();  // read user entry
+
+			s = sc.next(); // read user entry
+			if (s.equalsIgnoreCase("easy") || s.equalsIgnoreCase("medium") || s.equalsIgnoreCase("hard")
+					|| s.equalsIgnoreCase("click") || s.equalsIgnoreCase("flag") || s.equalsIgnoreCase("unflag"))
+
+				isValid = true;
+			else
+				System.out.println("Error, please enter a valid option.");
+
+		}
+
         return s;
+
     }
     
+
+
 //    public static String getName(Scanner sc, String prompt,
 //    	    int max)
 //    	    {	System.out.print(prompt);

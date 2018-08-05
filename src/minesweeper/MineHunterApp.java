@@ -24,14 +24,17 @@ public class MineHunterApp {
 		// String inNum;
 		// String isLastFlag;
 		// String check = null;
+		int mineCount = 0;
+		int maxMines = 0;
 		char[][] userBoard = null;
 		char[][] answerBoard = null;
 		int size = 0;
 		
 		System.out.println("Welcome to the MineHunter game!");
 
-		System.out.println("Please enter the level of difficulty. (easy, intermediate, difficult) ");
-		String sizeInput = scan.nextLine();
+		// System.out.println("Please enter the level of difficulty. (easy, medium,
+		// hard) ");
+		String sizeInput = Validator.getString(scan, "Please enter the level of difficulty. (easy, medium, hard) ");
 
 		// Outputting board from Functionality class and generateBoard methods based on
 		// level of difficulty selected
@@ -40,16 +43,20 @@ public class MineHunterApp {
 			size = 5;
 			answerBoard = Board.generateEasyBoard();
 			userBoard = Board.generateUserBoard(size);
+			maxMines = Board.maxMinesEasy();
 			Board.formatBoard(userBoard);
-		} else if (sizeInput.equalsIgnoreCase("intermediate")) {
+
+		} else if (sizeInput.equalsIgnoreCase("medium")) {
 			size = 6;
 			answerBoard = Board.generateMediumBoard();
 			userBoard = Board.generateUserBoard(size);
+			maxMines = Board.maxMinesMedium();
 			Board.formatBoard(userBoard);
-		} else if (sizeInput.equalsIgnoreCase("difficult")) {
+		} else if (sizeInput.equalsIgnoreCase("hard")) {
 			size = 7;
 			answerBoard = Board.generateHardBoard();
 			userBoard = Board.generateUserBoard(size);
+			maxMines = Board.maxMinesHard();
 			Board.formatBoard(userBoard);
 		}
 
@@ -79,10 +86,25 @@ public class MineHunterApp {
 				userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, x, y);  
 				Board.formatBoard(userBoard);
 				
+
 			} else if (userAction.equals("unflag")) {
 				userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, x, y);
 				Board.formatBoard(userBoard);
 			}
+			if (answerBoard[x][y] == '*') {
+				mineCount++;
+
+			}
+
+
+			if (mineCount == maxMines) {
+				System.out.println();
+				System.out.println("You win!");
+				System.out.println();
+				Board.formatBoard(answerBoard);
+				break;
+			}
+
 
 			// new updated board
 			// until they either win or lose

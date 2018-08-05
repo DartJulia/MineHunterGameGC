@@ -1,17 +1,17 @@
 package minesweeper;
 
 public class BoardFunctionality {
-	private static char[][]answerBoard = {
-			{'1','1','1','1','*','1','-','-','-'},
-			{'2','*','1','1','2','2','2','1','1'},
-			{'*','3','1','-','1','*','3','*','2'},
-			{'*','2','1','1','2','1','3','*','2'},
-			{'1','1','1','*','2','1','2','1','1'},
-			{'-','-','1','1','3','*','3','1','-'},
-			{'2','2','1','-','3','*','*','1','-'},
-			{'*','*','2','-','2','*','3','1','-'},
-			{'3','*','2','-','1','1','1','-','-'}
-			};
+	// private static char[][]answerBoard = {
+	// {'1','1','1','1','*','1','-','-','-'},
+	// {'2','*','1','1','2','2','2','1','1'},
+	// {'*','3','1','-','1','*','3','*','2'},
+	// {'*','2','1','1','2','1','3','*','2'},
+	// {'1','1','1','*','2','1','2','1','1'},
+	// {'-','-','1','1','3','*','3','1','-'},
+	// {'2','2','1','-','3','*','*','1','-'},
+	// {'*','*','2','-','2','*','3','1','-'},
+	// {'3','*','2','-','1','1','1','-','-'}
+	// };
 	private static char[][]userBoard = new char[9][9];
 
 	public static char[][] initializeUserBoard(){
@@ -71,15 +71,15 @@ public class BoardFunctionality {
 		}
 	}
 	
-	public static boolean outOfBounds(int x, int y)   {
-		int [][] arr = new int [9][9];
-		if(x < 0 && x > 8 && y < 0 && y > 8) {
-			return true;
-		}else if(x > 0 && x < 8 && y > 0 && y < 8) {
-			return false;
-		}
-		return true;
-	}
+	// public static boolean outOfBounds(int x, int y) {
+	// int [][] arr = new int [9][9];
+	// if(x < 0 && x > 8 && y < 0 && y > 8) {
+	// return true;
+	// }else if(x > 0 && x < 8 && y > 0 && y < 8) {
+	// return false;
+	// }
+	// return true;
+	// }
 
 
 	public static char[][] flagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
