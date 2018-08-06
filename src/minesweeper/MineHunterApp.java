@@ -39,6 +39,7 @@ public class MineHunterApp {
 		
 		if (sizeInput.equalsIgnoreCase("easy")) {
 			size = 5;
+				// test System.out.println(Board.generateMineArray(size));
 			answerBoard = Board.generateEasyBoard();
 			userBoard = Board.generateUserBoard(size);
 			// Setting max number of mines for a win scenario
@@ -61,6 +62,7 @@ public class MineHunterApp {
 			Board.formatBoard(userBoard);
 		}
 			System.out.println();
+
 		// Loop to continue entering in coordinates
 		do {
 				int userRow = Validator.getInt(scan, "Please choose a square! (row coordinate): ", 1, size);
