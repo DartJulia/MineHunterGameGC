@@ -3,8 +3,6 @@
  */
 package minesweeper;
 
-import java.util.ArrayList;
-
 /**
  * @author juliadart
  * @author matthewrhadigan
@@ -15,19 +13,20 @@ import java.util.ArrayList;
 public abstract class Board {
 
 	
-
+	// Generates blank userBoard with hash symbols for un-clicked spots
 	public static char[][] generateUserBoard(int size) {
 
-
 		char[][] userBoard = new char[size][size];
-
+		// Loops through array of specified size to generate hashes at each index
 		for(int i = 0; i<userBoard.length; i++)
 		    for(int j = 0; j<userBoard[i].length; j++)
 		        userBoard[i][j] = '#';
 		
 		return userBoard;
 	}
-	
+
+	// Formats board with coordinate labels and spacing. Embeds the userBoard in the
+	// formatted grid
 	public static void formatBoard(char [][] arr) {
 
 		System.out.print("      ");
@@ -60,21 +59,7 @@ public abstract class Board {
 		
 	}
 
-	public static ArrayList<Integer> generateMineArray(int size) {
-		ArrayList<Integer> locations = new ArrayList<>();
-		for (int i = 0; i < size; i++) {
-			for (int j = 0; j < size; j++) {
-				String ij = Integer.toString(i) + Integer.toString(j);
-				locations.add(Integer.parseInt(ij));
-
-			}
-		}
-
-		return locations;
-	}
-
-
-	// 5x5 mines = 3
+	// generates easy answerBoard - 5x5, mines = 3
 	public static char[][] generateEasyBoard() {
 		char[][] userBoard1 = { { '1', '1', '1', '-', '-' }, { '1', '*', '1', '-', '-' }, { '1', '1', '1', '1', '1' },
 				{ '-', '1', '1', '2', '*' }, { '-', '1', '*', '2', '1' } };
@@ -82,12 +67,13 @@ public abstract class Board {
 		return userBoard1;
 	}
 
+	// generates max mines for easy board
 	public static int maxMinesEasy() {
 
 		return 3;
 	}
 
-	// 6x6 mines = 6
+	// generates medium answerBoard - 6x6 mines = 6
 	public static char[][] generateMediumBoard() {
 
 		char[][] userBoard2 = { { '-', '-', '-', '1', '*', '2' }, { '1', '1', '1', '2', '3', '*' },
@@ -96,12 +82,13 @@ public abstract class Board {
 		return userBoard2;
 	}
 
+	// sets max mines for medium board
 	public static int maxMinesMedium() {
 
 		return 6;
 	}
 
-	// 7x7 mines = 7
+	// generates hard answerBoard -7x7 mines = 7
 	public static char[][] generateHardBoard() {
 		char[][] userBoard3 = { { '1', '1', '1', '-', '1', '1', '1' }, { '1', '*', '2', '2', '2', '*', '1' },
 				{ '1', '2', '*', '2', '*', '2', '1' }, { '-', '2', '2', '4', '2', '2', '-' },
@@ -110,6 +97,7 @@ public abstract class Board {
 		return userBoard3;
 	}
 
+	// Sets max mines for hard board
 	public static int maxMinesHard() {
 
 		return 7;
