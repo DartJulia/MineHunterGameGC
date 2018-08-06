@@ -141,6 +141,7 @@ public class MineHunterApp {
 					userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, row, column);
 					// user only has as many flags as bombs-- this counts up the flags they "un-use"
 					flagCount++;
+					System.out.println("You have this many flags left: " + flagCount);
 				} else {
 					System.out.println("Hmm, it seems this is not a flag. How strange! ");
 					System.out.println("You have this many flags left: " + flagCount);
