@@ -143,6 +143,7 @@ public class MineHunterApp {
 					flagCount++;
 				} else {
 					System.out.println("Hmm, it seems this is not a flag. How strange! ");
+					System.out.println("You have this many flags left: " + flagCount);
 				}
 				Board.formatBoard(userBoard);
 				// this updates whether the user incorrectly unflags a mine.
