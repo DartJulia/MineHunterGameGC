@@ -3,6 +3,8 @@
  */
 package minesweeper;
 
+import java.util.ArrayList;
+
 /**
  * @author juliadart
  * @author matthewrhadigan
@@ -58,7 +60,21 @@ public abstract class Board {
 		
 	}
 
-	// mines = 3
+	public static ArrayList<Integer> generateMineArray(int size) {
+		ArrayList<Integer> locations = new ArrayList<>();
+		for (int i = 0; i < size; i++) {
+			for (int j = 0; j < size; j++) {
+				String ij = Integer.toString(i) + Integer.toString(j);
+				locations.add(Integer.parseInt(ij));
+
+			}
+		}
+
+		return locations;
+	}
+
+
+	// 5x5 mines = 3
 	public static char[][] generateEasyBoard() {
 		char[][] userBoard1 = { { '1', '1', '1', '-', '-' }, { '1', '*', '1', '-', '-' }, { '1', '1', '1', '1', '1' },
 				{ '-', '1', '1', '2', '*' }, { '-', '1', '*', '2', '1' } };
@@ -71,7 +87,7 @@ public abstract class Board {
 		return 3;
 	}
 
-	// mines = 6
+	// 6x6 mines = 6
 	public static char[][] generateMediumBoard() {
 
 		char[][] userBoard2 = { { '-', '-', '-', '1', '*', '2' }, { '1', '1', '1', '2', '3', '*' },
@@ -85,7 +101,7 @@ public abstract class Board {
 		return 6;
 	}
 
-	// mines = 7
+	// 7x7 mines = 7
 	public static char[][] generateHardBoard() {
 		char[][] userBoard3 = { { '1', '1', '1', '-', '1', '1', '1' }, { '1', '*', '2', '2', '2', '*', '1' },
 				{ '1', '2', '*', '2', '*', '2', '1' }, { '-', '2', '2', '4', '2', '2', '-' },
