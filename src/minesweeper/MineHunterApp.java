@@ -26,6 +26,7 @@ public class MineHunterApp {
 		char[][] userBoard = null;
 		char[][] answerBoard = null;
 		int size = 0;
+		int numMines = 0;
 		String again = null;
 		
 		System.out.println("Welcome to the MineHunter game!");
@@ -39,26 +40,29 @@ public class MineHunterApp {
 		
 		if (sizeInput.equalsIgnoreCase("easy")) {
 			size = 5;
+				numMines = 3;
 				// test System.out.println(Board.generateMineArray(size));
 			answerBoard = Board.generateEasyBoard();
 			userBoard = Board.generateUserBoard(size);
 			// Setting max number of mines for a win scenario
-			maxMines = Board.maxMinesEasy();
+				maxMines = numMines;
 			Board.formatBoard(userBoard);
 
 		} else if (sizeInput.equalsIgnoreCase("medium")) {
 			size = 6;
+				numMines = 6;
 			answerBoard = Board.generateMediumBoard();
 			userBoard = Board.generateUserBoard(size);
 			// Setting max number of mines for a win scenario
-			maxMines = Board.maxMinesMedium();
+				maxMines = numMines;
 			Board.formatBoard(userBoard);
 		} else if (sizeInput.equalsIgnoreCase("hard")) {
 			size = 7;
+				numMines = 7;
 			answerBoard = Board.generateHardBoard();
 			userBoard = Board.generateUserBoard(size);
 			// Setting max number of mines for a win scenario
-			maxMines = Board.maxMinesHard();
+				maxMines = numMines;
 			Board.formatBoard(userBoard);
 		}
 			System.out.println();
