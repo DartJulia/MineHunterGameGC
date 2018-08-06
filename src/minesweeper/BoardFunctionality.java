@@ -76,7 +76,7 @@ public class BoardFunctionality {
 	
 	// this will flag a spot if the user chooses flag
 	public static char[][] flagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
-		
+		// changes user coordinates to a flag symbol,returns updated userBoard
 		char flag = '>';
 			userBoard[x][y] = flag;
 			return userBoard;
@@ -84,7 +84,7 @@ public class BoardFunctionality {
 	}
 	// this will un-flag a spot if the user chooses un-flag
 	public static char[][] unFlagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
-
+		// reverses flag method, returns updated userBoard
 		char hash = '#';
 			userBoard[x][y] = hash;
 			return userBoard;
