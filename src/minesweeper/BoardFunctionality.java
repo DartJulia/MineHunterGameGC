@@ -29,7 +29,7 @@ public class BoardFunctionality {
 		// if check is equal to an empty, calls updateEmptyCell method and returns an updated userBoard 
 		// with the "-" revealed
 		} else if (check == '-') {
-			return updateEmptyCell(answerBoard, userBoard, x, y);
+			return recurEmptyCell(answerBoard, userBoard, x, y);
 		}
 		return null;
 	}
@@ -60,7 +60,25 @@ public class BoardFunctionality {
 		}
 		return userBoard;
 	}
-	
+	public static char[][] recurEmptyCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
+
+		if (x < 0 || x > userBoard.length - 1 || y < 0 || y > userBoard.length - 1)
+			return userBoard; // check for bounds
+
+		if (answerBoard[x][y] == '-' && userBoard[x][y] == '#') {// answerBoard is blank & userBoard is unpressed
+
+			userBoard[x][y] = answerBoard[x][y];
+
+			recurEmptyCell(answerBoard, userBoard, x + 1, y);
+			recurEmptyCell(answerBoard, userBoard, x - 1, y);
+			recurEmptyCell(answerBoard, userBoard, x, y - 1);
+			recurEmptyCell(answerBoard, userBoard, x, y + 1);
+
+		} else {
+			return userBoard;
+		}
+		return userBoard;
+	}
 
 //	public static boolean pressUnpress(char[][] answerBoard, char[][] userBoard, int x, int y) {
 //		//char press = answerBoard[x][y];
