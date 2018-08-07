@@ -95,9 +95,13 @@ public class BoardFunctionality {
 	// this will flag a spot if the user chooses flag
 	public static char[][] flagCell(char[][] answerBoard, char[][] userBoard, int x, int y) {
 		// changes user coordinates to a flag symbol,returns updated userBoard
+		if (userBoard[x][y] == '-' || userBoard[x][y] == '1' || userBoard[x][y] == '2' || userBoard[x][y] == '3') {
+			return userBoard;
+		} else {
 		char flag = '>';
 			userBoard[x][y] = flag;
 			return userBoard;
+		}
 
 	}
 	// this will un-flag a spot if the user chooses un-flag

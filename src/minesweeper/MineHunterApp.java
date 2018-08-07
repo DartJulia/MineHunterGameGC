@@ -37,19 +37,21 @@ public class MineHunterApp {
 		System.out.println();
 		System.out.println("To win, flag all the mines in your field. ");
 		System.out.println("Also don't die...");
+		System.out.println();
 		//userInput asking for difficulty level
 		do {
-		String sizeInput = Validator.getString(scan, "Please enter the level of difficulty (easy, medium, hard): ");
+			String sizeInput = Validator.getString(scan, "Please select a level of difficulty (easy, medium, hard): ");
 		System.out.println();
 		// Outputting board from Functionality class and generateBoard methods based on
 		// level of difficulty selected
 		
+
 		if (sizeInput.equalsIgnoreCase("easy")) {
 			size = 5;
 				numMines = 3;
 				flagCount = numMines;
-				// test System.out.println(Board.generateMineArray(size));
 				
+
 			// calling generateEasyBoard method from Board class and assigning to an answerBoard variable
 			// creates a 5 x 5 2d array to compare against a user's action
 			answerBoard = Board.generateEasyBoard();
@@ -105,26 +107,26 @@ public class MineHunterApp {
 				int column = userColumn - 1;
 
 			// Ask user action for chosen square
-			String userAction = Validator.getString(scan,
-					"What would you like to do with this spot? (click, flag, unflag): ");
+				System.out.println("What would you like to do at this spot?");
+				String userAction = Validator.getString(scan, "C = Click | F = Flag | U = Unflag \n");
 
 		
 			// based on user choice update chosen spots on board with appropriate symbol
-			if (userAction.equals("click")) {
+				if (userAction.equals("click") || userAction.equals("c")) {
 				// loser is the method for if they click a bomb
 					System.out.println(loser(answerBoard, row, column));
 					// reassigning userBoard to reflect user's action
 					userBoard = BoardFunctionality.checkCell(answerBoard, userBoard, row, column);
 				Board.formatBoard(userBoard);
 				
-			} else if (userAction.equals("flag")) {
+				} else if (userAction.equals("flag") || userAction.equals("f")) {
 				if (flagCount > 0) {	// this stops them from using more flags than the user has
 					
 					// reassigning userBoard to reflect user's action
 					userBoard = BoardFunctionality.flagCell(answerBoard, userBoard, row, column);
 					// user only has as many flags as bombs-- this counts down the flags they use
 					flagCount--;
-					System.out.println("You have this many flags left: " + flagCount);
+						System.out.println("Flags left: " + flagCount);
 				}else {
 					System.out.println("Sorry, you have no more flags...");
 				}
@@ -136,15 +138,15 @@ public class MineHunterApp {
 				}
 				
 
-			} else if (userAction.equals("unflag")) {
+				} else if (userAction.equals("unflag") || userAction.equals("u")) {
 				if (userBoard [row][column] == '>') { //only unflag if there is really a flag at coordinates
 					userBoard = BoardFunctionality.unFlagCell(answerBoard, userBoard, row, column);
 					// user only has as many flags as bombs-- this counts up the flags they "un-use"
 					flagCount++;
-					System.out.println("You have this many flags left: " + flagCount);
+						System.out.println("Flags left: " + flagCount);
 				} else {
 					System.out.println("Hmm, it seems this is not a flag. How strange! ");
-					System.out.println("You have this many flags left: " + flagCount);
+						System.out.println("Flags left: " + flagCount);
 				}
 				Board.formatBoard(userBoard);
 				// this updates whether the user incorrectly unflags a mine.

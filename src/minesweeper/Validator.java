@@ -13,7 +13,8 @@ public class Validator
 
 			s = sc.next(); // read user entry
 			if (s.equalsIgnoreCase("easy") || s.equalsIgnoreCase("medium") || s.equalsIgnoreCase("hard")
-					|| s.equalsIgnoreCase("click") || s.equalsIgnoreCase("flag") || s.equalsIgnoreCase("unflag"))
+					|| s.equalsIgnoreCase("click") || s.equalsIgnoreCase("flag") || s.equalsIgnoreCase("unflag")
+					|| s.equalsIgnoreCase("u") || s.equalsIgnoreCase("f") || s.equalsIgnoreCase("c"))
 
 				isValid = true;
 			else
