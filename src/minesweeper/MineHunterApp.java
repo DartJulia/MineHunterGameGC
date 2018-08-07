@@ -166,7 +166,8 @@ public class MineHunterApp {
 			
 			//if user doesn't lose or win program loops
 		} while (userBoard != answerBoard);
-
+		answerBoard = null;
+		mineCount = 0;
 			System.out.println();
 		System.out.println("Would you like to play again? Yes or No ");
 		again = scan.next();
